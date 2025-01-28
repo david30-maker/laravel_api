@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function register(Request $request): JsonResponse|Response {
+    public function register(Request $request): \Illuminate\Http\JsonResponse{
         $validated = $request->validate(rules: [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
